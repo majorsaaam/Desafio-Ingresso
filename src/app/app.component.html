@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-darker sticky-top">
+  <div class="container">
+    <div class="collapse navbar-collapse">
+      <a class="navbar-brand" href="#">ingresso.com</a>
+      <div class="navbar-nav ml-auto">
+        <select (change)="ChangeLocation($event.target.value)" class="custom-select select-cidade pr-5">
+          <option *ngFor="let cidade of cidades" [value]="cidade.id">{{cidade.cidade}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+  <div class="row mt-4 mb-5">
+    <div class="col">
+      <div class="display-4 text-light">Em {{cidadeEscolhida}}:</div>
+    </div>
+    <div class="col-auto mt-auto ml-auto">
+      <input [(ngModel)]="filtroFilme.event.title" (keydown)="FilterMovies(filtroFilme, $event)" type="text" placeholder="Busque por um filme" class="input-dark p-2">
+    </div>
+  </div>
+  <div class="row">
+    <span id="arrow-left"><</span>
+    <div id="wrap-scroll">
+      <div id="modules">
+        <ng-container *ngFor="let filme of filmes">
+          <div class="card card-cartaz m-3" (click)="GoToTrailer(filme.event.id)">
+            <img [src]="filme.event.images[0].url" class="card-img-top">
+            <div class="wrap-hover p-3">
+              <h3 class="card-title--hoverable">
+                <span class="font-weight-bold">{{filme.event.title}}</span><br>
+                <span class="small">
+                  {{filme.event.duration}} minutos • 
+                  <ng-container *ngFor="let genero of filme.event.genres;index as i">{{genero}}{{(i === filme.event.genres.length -1 ? '' : ', ')}}</ng-container> •
+                  {{filme.event.contentRating}}
+                </span>
+              </h3>
+              <i class="fab fa-youtube text-danger fa-2x"></i><br>
+              <!-- <div class="contentRating">
+              </div> -->
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <span id="arrow-right">></span>
+  </div>
+</main>
