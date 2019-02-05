@@ -14,18 +14,14 @@
     color: #fff;
     font-size: 1em;
 }
-.card-img-top {transition: opacity 0.7s;position: absolute;}
+.card-img-top { transition: opacity 0.7s;position: absolute; }
 .card:hover {
     box-shadow: 1px 1px 10px rgb(112, 112, 112);
-    .card-img-top {
-        opacity: 0.4;
-    }
-    .wrap-hover {
-        opacity: 1;
-    }
+    .card-img-top { opacity: 0.4; }
+    .wrap-hover { opacity: 1; }
 }
 #modules {
-    height:460px; /* 40px - more place for scrollbar, is hidden under parent box */
+    height:460px;
     padding:5px;
     white-space:nowrap;
     overflow-x: scroll;
@@ -45,7 +41,6 @@
     transition: opacity 0.4s;
 }
 .select-cidade {
-    // background-color: rgb(20, 20, 20);
     color: #fff;
     border: none;
     background-color: transparent !important;
@@ -59,9 +54,7 @@
 .navbar-darker {
     color: #fff;
     background-color: #282828;
-    a {
-        color: inherit;
-    }
+    a { color: inherit; }
 }
 #arrow-left, #arrow-right {
     color: #fff;
@@ -79,8 +72,8 @@
     opacity: 0.7;
     z-index: 9;
 }
-#arrow-left {margin-right: -45px;}
-#arrow-right {margin-left: -45px;}
+#arrow-left { margin-right: -45px; }
+#arrow-right { margin-left: -45px; }
 .input-dark {
     background-color: #141414;
     border: none;
