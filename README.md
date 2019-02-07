@@ -17,7 +17,7 @@ Baixe o respectivo para seu navegador (**e lembre-se de desativar quando não es
 - Angular 6.1.10
 - Typescript 2.8.4
 - Bootstrap 4.2.1
-- [Filter Pipe](https://www.npmjs.com/package/ngx-filter-pipe)
+- [Ngx Pipes](https://www.npmjs.com/package/ngx-pipes)
 - FontAwesome 5.7.1
 
 ## Licença
