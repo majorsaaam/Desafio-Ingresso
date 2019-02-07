@@ -11,37 +11,50 @@
   </div>
 </nav>
 
-<main class="container">
-  <div class="row mt-4 mb-5">
-    <div class="col">
-      <div class="display-4 text-light">Em {{cidadeEscolhida}}:</div>
-    </div>
-    <div class="col-auto mt-auto ml-auto">
-      <input [(ngModel)]="filtroFilme.value"  type="text" placeholder="Busque por um filme" class="input-dark p-2">
-    </div>
-  </div>
-  <div class="row">
-    <span id="arrow-left"><</span>
-    <div id="wrap-scroll">
-      <div id="modules">
-        <ng-container *ngFor="let filme of filmes | filterBy: ['event.title']: filtroFilme.value">
-          <div class="card card-cartaz m-3" (click)="GoToTrailer(filme.event.id)">
-            <img [src]="filme.event.images[0].url" class="card-img-top">
-            <div class="wrap-hover p-3">
-              <h3 class="card-title--hoverable">
-                <span class="font-weight-bold">{{filme.event.title}}</span><br>
-                <span class="small">
-                  {{filme.event.duration}} minutos • 
-                  <ng-container *ngFor="let genero of filme.event.genres;index as i">{{genero}}{{(i === filme.event.genres.length -1 ? '' : ', ')}}</ng-container> •
-                  {{filme.event.contentRating}}
-                </span>
-              </h3>
-              <i class="fab fa-youtube text-danger fa-2x"></i><br>
-            </div>
-          </div>
-        </ng-container>
+<main>
+  <section id="highlights">
+    <div class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div *ngFor="let filme of filmes; let isFirst = first" [class.active]="isFirst" [class.link]="filme.event.trailer" class="carousel-item" (click)="GoToTrailer(filme.event.id)">
+            <img [src]="filme.event.images[1].url" class="w-100">
+            <div class="container"><div class="title--highlight">{{filme.event.title}}</div></div>
+        </div>
       </div>
     </div>
-    <span id="arrow-right">></span>
-  </div>
+  </section>
+
+  <section class="container">
+    <div class="row mt-4 mb-5">
+      <div class="col">
+        <div class="display-4 text-light">Em {{cidadeEscolhida}}:</div>
+      </div>
+      <div class="col-auto mt-auto ml-auto">
+        <input [(ngModel)]="filtroFilme.value"  type="text" placeholder="Busque por um filme" class="input-dark p-2">
+      </div>
+    </div>
+    <div class="row">
+      <span id="arrow-left"><</span>
+      <div id="wrap-scroll">
+        <div id="modules">
+          <ng-container *ngFor="let filme of filmes | filterBy: ['event.title']: filtroFilme.value">
+            <div class="card link card-cartaz m-3" (click)="GoToTrailer(filme.event.id)">
+              <div class="card-img-top"><img [src]="filme.event.images[0].url"></div>
+              <div class="wrap-hover p-2">
+                <div class="card-title--hoverable">
+                  <span class="box-title">{{filme.event.title}}</span>
+                  <div class="small mt-1"> 
+                    <ng-container *ngFor="let genero of filme.event.genres;index as i">
+                      <div class="box-genero">{{genero}}</div>
+                    </ng-container>
+                    <div class="box-detalhes" *ngIf="filme.event.contentRating !== 'Verifique a Classificação'">{{filme.event.contentRating}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <span id="arrow-right">></span>
+    </div>
+  </section>
 </main>

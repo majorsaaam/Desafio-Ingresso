@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
       return next.json()
     }).then((cartaz) => {
       this.filmes = cartaz;
+      console.log(this.filmes);
     })
   }
 

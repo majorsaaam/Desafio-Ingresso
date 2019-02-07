@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {NgPipesModule} from 'ngx-pipes';
+import { NgPipesModule } from 'ngx-pipes';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 
