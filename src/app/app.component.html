@@ -17,14 +17,14 @@
       <div class="display-4 text-light">Em {{cidadeEscolhida}}:</div>
     </div>
     <div class="col-auto mt-auto ml-auto">
-      <input [(ngModel)]="filtroFilme.event.title" (keydown)="FilterMovies(filtroFilme, $event)" type="text" placeholder="Busque por um filme" class="input-dark p-2">
+      <input [(ngModel)]="filtroFilme.value"  type="text" placeholder="Busque por um filme" class="input-dark p-2">
     </div>
   </div>
   <div class="row">
     <span id="arrow-left"><</span>
     <div id="wrap-scroll">
       <div id="modules">
-        <ng-container *ngFor="let filme of filmes">
+        <ng-container *ngFor="let filme of filmes | filterBy: ['event.title']: filtroFilme.value">
           <div class="card card-cartaz m-3" (click)="GoToTrailer(filme.event.id)">
             <img [src]="filme.event.images[0].url" class="card-img-top">
             <div class="wrap-hover p-3">

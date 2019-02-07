@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FilterPipe } from 'ngx-filter-pipe';
+// import { FilterPipe } from 'ngx-filter-pipe';
 
 @Component({
   selector: 'app-root',
@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
     this.cidadeEscolhida = this.cidades.filter((el: any) => el.id == id)[0].cidade;
   }
 
-  constructor(private filter: FilterPipe) { }
+  constructor() { }
   
   ngOnInit() {
     this.GetFilmes();
@@ -59,13 +59,5 @@ export class AppComponent implements OnInit {
     right.addEventListener("click", function() {
       scroll.scrollBy(280,0)
     }, false)
-  }
-
-  FilterMovies(filtro: any, event: KeyboardEvent) {
-    let result = this.filter.transform(this.filmes, filtro);
-    this.filmes = result;    
-    if (filtro.event.title == "") {
-      this.GetFilmes();
-    }
   }
 }

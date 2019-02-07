@@ -22,7 +22,7 @@
     "@angular/router": "^6.1.0",
     "adm-zip": "^0.4.13",
     "core-js": "^2.5.4",
-    "ngx-filter-pipe": "^2.1.2",
+    "ngx-pipes": "^2.3.10",
     "parsejson": "0.0.3",
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.26"
